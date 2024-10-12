@@ -9,12 +9,15 @@ import com.example.poc_concurency.d_spring_async.return_type_completablefuture_e
 import com.example.poc_concurency.d_spring_async.return_type_void_example.AsyncExampleVoidRunner;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-public class ConcurrencyController {
+@RequestMapping("/nonblocking")
+public class NonBlockingRequestThreadController {
     @Autowired
     private ThreadRunner threadRunner;
 
@@ -37,8 +40,8 @@ public class ConcurrencyController {
     private AsyncExampleCompletableFutureRunner asyncExampleCompletableFutureRunner;
 
 
-    @GetMapping
-    public void execute() throws ExecutionException, InterruptedException {
+    @GetMapping // Si bien todo el procesamiento es asincrono pero no devolvemos el request thread al usar tipo de retorno String el request thread se quedara abotonado hasta llegar al return
+    public String execute() throws ExecutionException, InterruptedException {
         long init = System.currentTimeMillis();
         System.out.println(Thread.currentThread().getName() + "-thread start...");
 
@@ -53,5 +56,6 @@ public class ConcurrencyController {
         long elapsedTime = System.currentTimeMillis() - init;
 
         System.out.println(Thread.currentThread().getName() + "-thread took " + elapsedTime + "(ms) to completes");
+        return "SUCCESS";
     }
 }

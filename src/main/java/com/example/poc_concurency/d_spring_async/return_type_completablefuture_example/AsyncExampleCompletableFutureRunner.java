@@ -15,7 +15,7 @@ public class AsyncExampleCompletableFutureRunner {
     @Autowired
     private ResultPackagingService packagingService;
 
-    public  void execute() throws ExecutionException, InterruptedException {
+    public void execute() throws ExecutionException, InterruptedException {
         CompletableFuture<String> notificationFuture = notificationService.execute();
         CompletableFuture<String> packagingFuture = packagingService.execute();
 
