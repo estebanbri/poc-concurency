@@ -14,6 +14,19 @@ public class CompletableFutureRunAsyncRunner {
 
         CompletableFuture.runAsync(notificationTask);
         CompletableFuture.runAsync(packagingTask);
+
+        // Este join de abajo es unicamente util si tu aplicacion no es una spring-boot-starter-web.
+        // Ya que CompletableFuture por defecto usa ForkJoinPool y dicho creador de hilos crea hilos DEAMON
+        // (que sean daemon implica que si el hilo principal termina se apaga la jvm y hace que los hilos daemon no se completen)
+
+        // CompletableFuture<Void> cf1 = CompletableFuture.runAsync(notificationTask);
+        // CompletableFuture<Void> cf2 = CompletableFuture.runAsync(packagingTask);
+        // CompletableFuture<Void> allCf = CompletableFuture.allOf(cf1,cf2);
+        // allCf.join();
+    }
+
+    public static void main(String[] args) {
+        new CompletableFutureRunAsyncRunner().execute();
     }
 
 }

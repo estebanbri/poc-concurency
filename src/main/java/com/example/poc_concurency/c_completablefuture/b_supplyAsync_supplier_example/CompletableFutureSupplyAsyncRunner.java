@@ -30,6 +30,10 @@ public class CompletableFutureSupplyAsyncRunner {
             }
         });
 
+        // Este join de abajo es unicamente util si tu aplicacion no es una spring-boot-starter-web.
+        // Ya que CompletableFuture por defecto usa ForkJoinPool y dicho creador de hilos crea hilos DEAMON
+        // (que sean daemon implica que si el hilo principal termina se apaga la jvm y hace que los hilos daemon no se completen)
+        // allTasks.join();
     }
 
 }
