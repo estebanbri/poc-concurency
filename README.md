@@ -5,13 +5,15 @@
   - NO BLOQUEANTE 
 - Framework Executor:
   - NO BLOQUEANTE: executor.execute(Runnable)
-  - BLOQUEANTE: executor.submit(Calleable) + executor.awaitTermination()
+  - BLOQUEANTE: executor.submit(Calleable) + executor.awaitTermination() + get()
 - CompletableFuture
   - NO BLOQUEANTE: CompletableFuture.runAsync(Runnable)
-  - NO BLOQUEANTE: CompletableFuture.supplyAsync(Supplier) + allOf() + theRun() + get()
+  - NO BLOQUEANTE: CompletableFuture.supplyAsync(Supplier) + theRun(() -> get())
+  - NO BLOQUEANTE: 2 o + CompletableFuture.supplyAsync(Supplier) + allOf() + theRun(() -> get())
 - @Async
   - NO BLOQUEANTE: return type void
-  - NO BLOQUEANTE: return type CompletableFuture +  allOf() + theRun() + get()
+  - NO BLOQUEANTE: return type CompletableFuture + theRun(() -> get())
+  - NO BLOQUEANTE: 2 o + return type CompletableFuture +  allOf() + theRun(() -> get())
 
 Como ves el unico caso bloqueante del hilo padre es lo que nos proveia ExecutorFramework para
 el manejo de Calleables con su metodo bloqueante awaitTermination, lo no tan malo que te te permite definir
