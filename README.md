@@ -19,12 +19,10 @@ Como ves el unico caso bloqueante del hilo padre es lo que nos proveia ExecutorF
 el manejo de Calleables con su metodo bloqueante awaitTermination, lo no tan malo que te te permite definir
 un timeout.
 
-En caso de que no sea una aplicacion spring boot web que ya de por si para cada request maneja un pool de threads,
-y tu aplicacion es una aplicacion Java que consta unicamente del hilo principal, para los casos mencionados arriba como 
-100% no bloqueantes para el hilo padre, vas a tener que hacer un workaround de bloquear al main porque 
-como por defecto los hilos en java se crean de tipo "user thread" es decir cada hilo va a tener una relacion
-hilo padre e hilo hijo, cuando el hilo padre muere el/los hilos hijos tambien mueren. Por eso existen
-la otra categoria de hilos "hilos daemon" que se ejecutan de manera independiente del hilo que lo creo.
+Tip: recorda que los threads que se crean con CompletaFuture en el ForkJoinPool son por defecto daemon threads.
+(Implica que si la jvm se apaga las task mueren, esto singifica que si tu aplicacion solo consta de un unico 
+thread-main y un CompletableFuture si no usas join() sobre el completablefuture no va a completarse la task
+porque el thread-main va a completarse y va a apagarse la jvm sin que se ejecute tu task)
 
 // PENDIENTE
 ASYNC AWAIT
