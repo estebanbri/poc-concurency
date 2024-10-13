@@ -15,8 +15,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/blocking-request-thread-with-async-processing")
-public class BlockingRequestThreadController {
+@RequestMapping("/nonblocking-with-spring-async-void-example")
+public class NonBlockingVoidController {
     @Autowired
     private ThreadRunner threadRunner;
 
@@ -39,14 +39,15 @@ public class BlockingRequestThreadController {
     private AsyncExampleCompletableFutureRunner asyncExampleCompletableFutureRunner;
 
 
-    @GetMapping // Si bien todo el procesamiento es asincrono pero no devolvemos el request thread al usar tipo de retorno String el request thread se quedara abotonado hasta llegar al return
-    public String execute() throws ExecutionException, InterruptedException {
+    @GetMapping
+    public void execute() throws ExecutionException, InterruptedException {
         long init = System.currentTimeMillis();
         System.out.println(Thread.currentThread().getName() + "-thread start...");
 
+        // La request-thread al momento de toparse con este metodo @Async se livera la request-thread y retorna al pool y el control pasaria sobre el worker thread
         // threadRunner.execute();
         // executorRunnerRunnable.execute();
-        // executorRunnerCalleable.execute(); // CASO CALLEABLE: UNICO CASO BLOQUEANTE
+        // executorRunnerCalleable.execute(); // CASO CALLEABLE: UNICO CASO BLOQUEANTE AL THREAD INVOCADOR PADRE (EN ESTE CASO AL REQUEST_THREAD DE TOMCAT)
         // completableFutureRunAsyncRunner.execute();
         // completableFutureSupplyAsyncRunner.execute();
         asyncExampleVoidRunner.execute();
@@ -55,6 +56,5 @@ public class BlockingRequestThreadController {
         long elapsedTime = System.currentTimeMillis() - init;
 
         System.out.println(Thread.currentThread().getName() + "-thread took " + elapsedTime + "(ms) to completes");
-        return "SUCCESS";
     }
 }

@@ -12,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/nonblocking-request-thread-with-async-processing")
-public class NonBlockingRequestThreadController {
+@RequestMapping("/nonblocking-with-spring-async-with-return-value-example")
+public class NonBlockingCFController {
     @Autowired
     private FileProcessorService fileProcessorService;
 
@@ -25,7 +25,7 @@ public class NonBlockingRequestThreadController {
 
 @Component
 class FileProcessorService {
-    @Async  // La request al momento de toparse con este metodo @Async liberara el request-thread y lo devolvera al pool y el control pasaria sobre el worker thread
+    @Async  // La request-thread al momento de toparse con este metodo @Async se livera la request-thread y retorna al pool y el control pasaria sobre el worker thread
     CompletableFuture<String> getTextAsync () {
         String text = parseFileAndGetText();
         return CompletableFuture.completedFuture(text);

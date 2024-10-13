@@ -1,5 +1,10 @@
 ## Resumen principal de soluciones con concurrencia.
 
+Endpoints REST Asincronos usando RestController:
+
+[localhost:8080/nonblocking-with-spring-async-void-example](localhost:8080/nonblocking-with-spring-async-void-example)
+[localhost:8080/nonblocking-with-spring-async-with-return-value-example](localhost:8080/nonblocking-with-spring-async-with-return-value-example)
+
 ### Soluciones:
 - Thread
   - NO BLOQUEANTE 
