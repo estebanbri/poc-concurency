@@ -1,4 +1,4 @@
-package com.example.poc_concurency.z_controller;
+package com.example.poc_concurency.z_async_controller;
 
 import com.example.poc_concurency.a_thread.a_basic_example.ThreadRunner;
 import com.example.poc_concurency.b_executor_framework.a_execute_runnable_example.ExecutorRunnerRunnable;

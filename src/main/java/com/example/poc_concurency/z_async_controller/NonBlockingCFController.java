@@ -1,4 +1,4 @@
-package com.example.poc_concurency.z_controller;
+package com.example.poc_concurency.z_async_controller;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
