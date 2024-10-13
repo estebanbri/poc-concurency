@@ -29,8 +29,13 @@ Tip: recorda que los threads que se crean con CompletaFuture en el ForkJoinPool 
 thread-main y un CompletableFuture si no usas join() sobre el completablefuture no va a completarse la task
 porque el thread-main va a completarse y va a apagarse la jvm sin que se ejecute tu task)
 
+Tip: Cuando uses while loop infinitos dentro de threads siempre al final agregale un sleep(10) aunque sea
+minimo como 10 milisegundos esto va a ser que el resultado de ejecucion sea el que vos queres sino
+sin dormilo aunque sea es cantidad minima al thread puede darse resultado no esperado por ejemplo lo que te paso
+en el ejemplo de volatile que aunque lo hayas seteado a false al flag en el thread writer el thread reader al
+ejecutarse tan rapido ejecutaba el body una vez antes de apagarse.
+
 // PENDIENTE
 ASYNC AWAIT
-LOS PROBLEMAS DE CONCCURRENCIA
 THREADLOCAL
 ATOMiC INTEGEGER?
