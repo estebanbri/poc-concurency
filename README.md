@@ -34,8 +34,3 @@ minimo como 10 milisegundos esto va a ser que el resultado de ejecucion sea el q
 sin dormilo aunque sea es cantidad minima al thread puede darse resultado no esperado por ejemplo lo que te paso
 en el ejemplo de volatile que aunque lo hayas seteado a false al flag en el thread writer el thread reader al
 ejecutarse tan rapido ejecutaba el body una vez antes de apagarse.
-
-// PENDIENTE
-ASYNC AWAIT
-THREADLOCAL
-ATOMiC INTEGEGER?
