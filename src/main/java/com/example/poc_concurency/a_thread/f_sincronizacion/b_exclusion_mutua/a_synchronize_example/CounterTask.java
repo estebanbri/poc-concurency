@@ -1,4 +1,4 @@
-package com.example.poc_concurency.a_thread.problemas_concurrencia.b_sincronizacion.a_synchronize_example;
+package com.example.poc_concurency.a_thread.f_sincronizacion.b_exclusion_mutua.a_synchronize_example;
 
 import com.example.poc_concurency.thread_util.ThreadUtil;
 

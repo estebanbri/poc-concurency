@@ -1,4 +1,4 @@
-package com.example.poc_concurency.a_thread.problemas_concurrencia.b_sincronizacion.b_lock_example;
+package com.example.poc_concurency.a_thread.f_sincronizacion.b_exclusion_mutua.b_lock_example;
 
 public class Runner {
     public static void main(String[] args) {

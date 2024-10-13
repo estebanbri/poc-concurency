@@ -1,4 +1,4 @@
-package com.example.poc_concurency.a_thread.problemas_concurrencia.a_visibilidad.volatile_example;
+package com.example.poc_concurency.a_thread.f_sincronizacion.a_visibilidad.volatile_example;
 
 
 public class MyRunner {

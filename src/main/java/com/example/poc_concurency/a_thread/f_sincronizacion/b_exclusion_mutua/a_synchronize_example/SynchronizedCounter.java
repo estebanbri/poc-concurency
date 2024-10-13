@@ -1,4 +1,4 @@
-package com.example.poc_concurency.a_thread.problemas_concurrencia.b_sincronizacion.a_synchronize_example;
+package com.example.poc_concurency.a_thread.f_sincronizacion.b_exclusion_mutua.a_synchronize_example;
 
 public class SynchronizedCounter {
     private int count = 0;
