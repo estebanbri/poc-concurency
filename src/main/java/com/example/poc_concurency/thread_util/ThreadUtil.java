@@ -1,4 +1,4 @@
-package com.example.poc_concurency.util;
+package com.example.poc_concurency.thread_util;
 
 public class ThreadUtil {
     private static final long TWO_SECOND = 2000L;

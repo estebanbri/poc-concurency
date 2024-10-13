@@ -1,6 +1,6 @@
 package com.example.poc_concurency.b_executor_framework.b_submit_calleable_example;
 
-import com.example.poc_concurency.util.ThreadUtil;
+import com.example.poc_concurency.thread_util.ThreadUtil;
 
 import java.util.concurrent.Callable;
 

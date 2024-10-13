@@ -1,12 +1,6 @@
-package com.example.poc_concurency.controller;
+package com.example.poc_concurency.z_controller;
 
-import com.example.poc_concurency.a_thread.a_basic_example.ThreadRunner;
-import com.example.poc_concurency.b_executor_framework.a_execute_runnable_example.ExecutorRunnerRunnable;
-import com.example.poc_concurency.b_executor_framework.b_submit_calleable_example.ExecutorRunnerCallable;
-import com.example.poc_concurency.c_completablefuture.a_runAsync_runnable_example.CompletableFutureRunAsyncRunner;
-import com.example.poc_concurency.c_completablefuture.b_supplyAsync_supplier_example.CompletableFutureSupplyAsyncRunner;
-import com.example.poc_concurency.d_spring_async.return_type_completablefuture_example.AsyncExampleCompletableFutureRunner;
-import com.example.poc_concurency.d_spring_async.return_type_void_example.AsyncExampleVoidRunner;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
@@ -18,8 +12,8 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/blocking")
-public class BlockingRequestThreadController {
+@RequestMapping("/nonblocking-request-thread-with-async-processing")
+public class NonBlockingRequestThreadController {
     @Autowired
     private FileProcessorService fileProcessorService;
 

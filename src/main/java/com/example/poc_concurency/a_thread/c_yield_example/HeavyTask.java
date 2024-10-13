@@ -1,6 +1,6 @@
 package com.example.poc_concurency.a_thread.c_yield_example;
 
-import com.example.poc_concurency.util.ThreadUtil;
+import com.example.poc_concurency.thread_util.ThreadUtil;
 
 public class HeavyTask implements Runnable {
 

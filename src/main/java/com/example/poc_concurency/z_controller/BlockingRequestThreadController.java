@@ -1,4 +1,4 @@
-package com.example.poc_concurency.controller;
+package com.example.poc_concurency.z_controller;
 
 import com.example.poc_concurency.a_thread.a_basic_example.ThreadRunner;
 import com.example.poc_concurency.b_executor_framework.a_execute_runnable_example.ExecutorRunnerRunnable;
@@ -12,12 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutionException;
 
 @RestController
-@RequestMapping("/nonblocking")
-public class NonBlockingRequestThreadController {
+@RequestMapping("/blocking-request-thread-with-async-processing")
+public class BlockingRequestThreadController {
     @Autowired
     private ThreadRunner threadRunner;
 
@@ -50,8 +49,8 @@ public class NonBlockingRequestThreadController {
         // executorRunnerCalleable.execute(); // CASO CALLEABLE: UNICO CASO BLOQUEANTE
         // completableFutureRunAsyncRunner.execute();
         // completableFutureSupplyAsyncRunner.execute();
-        // asyncExampleVoidRunner.execute();
-        asyncExampleCompletableFutureRunner.execute();
+        asyncExampleVoidRunner.execute();
+        //  asyncExampleCompletableFutureRunner.execute();
 
         long elapsedTime = System.currentTimeMillis() - init;
 

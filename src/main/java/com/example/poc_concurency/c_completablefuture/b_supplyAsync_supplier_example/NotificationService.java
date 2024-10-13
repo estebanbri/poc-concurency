@@ -1,8 +1,6 @@
 package com.example.poc_concurency.c_completablefuture.b_supplyAsync_supplier_example;
 
-import com.example.poc_concurency.util.ThreadUtil;
-
-import java.util.concurrent.Callable;
+import com.example.poc_concurency.thread_util.ThreadUtil;
 
 public class NotificationService {
     public String execute() {

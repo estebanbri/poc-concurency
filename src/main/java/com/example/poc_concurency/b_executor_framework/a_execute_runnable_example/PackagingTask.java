@@ -1,6 +1,6 @@
 package com.example.poc_concurency.b_executor_framework.a_execute_runnable_example;
 
-import com.example.poc_concurency.util.ThreadUtil;
+import com.example.poc_concurency.thread_util.ThreadUtil;
 
 public class PackagingTask implements Runnable {
 
