@@ -11,7 +11,7 @@ public class ThreadUtil {
     public static long sleepFiveSeconds() {
         return sleep(FIVE_SECONDS);
     }
-    private static long sleep(long millis) {
+    public static long sleep(long millis) {
         try {
             Thread.sleep(millis);
             return millis;

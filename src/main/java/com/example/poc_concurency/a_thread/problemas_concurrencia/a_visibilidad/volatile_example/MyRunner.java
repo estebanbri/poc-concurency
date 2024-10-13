@@ -1,17 +1,21 @@
 package com.example.poc_concurency.a_thread.problemas_concurrencia.a_visibilidad.volatile_example;
 
 
-public class Main {
+public class MyRunner {
+
+
+    // Variable compartida y marcada como volatile
+    public static  boolean running = true;
 
     public static void main(String[] args) throws InterruptedException {
         long init = System.currentTimeMillis();
         System.out.println(Thread.currentThread().getName() + "-thread start...");
 
-        Runnable heavyTask = new HeavyTask();
-        Runnable lightTask = new LightTask();
+        Runnable writerTask = new WriterTask();
+        Runnable readerTask = new ReaderTask();
 
-        Thread t1 = new Thread(heavyTask);
-        Thread t2 = new Thread(lightTask);
+        Thread t1 = new Thread(writerTask);
+        Thread t2 = new Thread(readerTask);
         t1.start();
         t2.start();
 
