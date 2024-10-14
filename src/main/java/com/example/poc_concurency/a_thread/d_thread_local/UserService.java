@@ -14,7 +14,7 @@ class UserService implements Runnable {
         UserContext.setUserId(userId);
 
         // Simulate some work with the user ID
-        System.out.println("Processing in UserService user ID: " + UserContext.getUserId());
+        System.out.println("Processing in UserService user ID: " + UserContext.getUserId() + " en thread-name: " + Thread.currentThread().getName());
 
         userRepository.execute();
 
